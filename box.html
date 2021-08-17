@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<!--
+	Forty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Noa Samarelli</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<!-- Note: The "styleN" class below should match that of the banner element. -->
+					<header id="header" class="alt style2">
+						<a href="index.html" class="logo"><strong>N S</strong> <span></a>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<ul class="links">
+							<li><a href="index.html">Home</a></li>
+							<li><a href="resume.html">Resume</a></li>
+							<li><a href="contact.html">Contacts</a></li>
+						</ul>
+					</nav>
+
+				<!-- Banner -->
+				<!-- Note: The "styleN" class below should match that of the header element. -->
+					<section id="banner" class="style2">
+						<div class="inner">
+							<span class="image">
+								<img src="images/pic07.jpg" alt="" />
+							</span>
+							<header class="major">
+								<h1>Digital Manufacturing</h1>
+							</header>
+							<div class="content">
+								<p>Manufacturing by software<br />
+								Class taught by Professor Hod Lipson</p>
+							</div>
+						</div>
+					</section>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- One -->
+							<section id="one">
+								<div class="inner">
+									<header class="major">
+										<h2>MECE E4606</h2>
+									</header>
+									<p>Creating physical objects directly from a software blueprint.</p>
+								</div>
+							</section>
+
+						<!-- Two -->
+							<section id="two" class="spotlights">
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/box.png" alt="" data-position="center center" />
+										
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3><a href="https://www.youtube.com/watch?v=iVjN9a_YuyU"><u><i>Laser-Cut Cookie Box</i></u></a></h3>
+											</header>
+											<p>The goal of this prohject was to perform software-driven fabrication. My partner and I wrote a program that will generate a cardboard layout for folding an open-bin box. In the program, the user enters the dimensions of the material and the desired bin box. The software then generates an SVG file, which is then imported into a laser-cutter software and used to cut cardboard sheets to be folded into a box.<br><br> Check our work out <a href="https://www.youtube.com/watch?v=iVjN9a_YuyU"><strong><i>here</i></strong></a>!</p>
+											
+										</div>
+									</div>
+								</section>
+								<section>
+									<a href="generic.html" class="image">
+										<img src="images/box1.png" alt="" data-position="top center" />
+									</a>
+									<div class="content">
+										<div class="inner">
+											<header class="major">
+												<h3>Gnerating the Box</h3>
+											</header>
+											<p>
+
+												<h4>Laser Cutter</h4>
+												The maximum possible dimensions of any box and material were the defined as the work area of the laser cutter in the Makerspace (Thunder Laser Nova51). <br>
+												Length = 51.2, Width = 35.4, and Height = 9.1. <br><br>
+												
+												<h4>Material</h4>
+												When the python script is run, the user is asked to input the length, width and thickness of the material they are expecting to cut. This user input is first checked to make sure there are no negative values or zeros. Then, the material dimensions were compared to the laser cutter work area to make sure they are within the maximum cutting area. <br> <br>
+												
+												<h4>Box</h4>
+												Next, the user is asked to enter the desired box length, width and height. These values are also checked to make sure there are no negative values or zeros and to make sure make sure that the box dimensions are less than the material dimensions. <br> <br>
+												
+												<h4>Folds and Flaps</h4>
+												The fold height was calculated to be the lesser of the (box width or box height) divided by 6.
+												The flap height was calculated to be the same as the fold height.
+												The flap width was calculated to be the lesser of the (box length or box height) divided by 2. <br> <br>
+												
+												<h4>Parameters</h4>
+												Our design has the entire box (with flaps and lid) to be cut from the same material. Therefore, the total length of the box that needs to fit on the material length was calculated as follows: <br> <br>
+												total_length = box_length + (max(box_height,(fold_height+(flap_height*2)))*2) <br> <br>
+												
+												Similarly, the total width of the box that needs to fit on the material length was as follows: <br> <br>
+												total_width = (box_width*2) + (box_height*2) + fold_height + (flap_height*2) <br> <br>
+												
+												If the total box length was greater than the material length, or the total box width was greater than the material width, then the software would print an error and prompt the user to enter new values. <br> <br>
+												
+												The minimum dimensions of this box were defined to be 2"x2"x2". If a user enters any values less than 2" then the software would print an error and prompt the user to enter new values. <br><br>
+												
+												<h4>Handles</h4>
+												The software automatically calculated the position and dimensions of the box handles. These handles were placed on the sides of the box and were dependent on the box height and box width. The edges of the box were rounded and the handle was placed below the fold height, for when the lid folds onto the sides of the box. <br><br>
+												
+												<h4>Fold Lines</h4>
+												The fold lines were automatically calculated based on the box outline. The thickness of the fold line was equal to the material thickness, so that the box can be folded without the two sides of the material overlapping and damaging each other. <br><br>
+												
+												<h4>Output</h4>
+												The software outputs an SVG file with all the formatting that is required to make an SVG file (header, footers and descriptions) and the code for the box outline, fold lines, designs, text, and handles. <br><br>
+												The laser cutter is only able to set different speeds and laser strengths per color. Therefore, we selected three colors for our box design:  <br><br>
+
+												<div class="row">
+														<ul>
+															<li><b>Green:</b> The box outline and handles were a "cut" with slowest speed and most intense laser strength. The laser is supposed to cut through the material to separate the box at the green lines.</li>
+															<li><b>Red:</b> The fold lines were a "cut" with a faster speed and less intense laser strength. The laser is supposed to cut through half of the material to allow the material to fold.</li>
+															<li><b>Blue:</b> The designs and text were a "cut" with the fastest speed and least intense laser strength. The laser is supposed to engrave the designs and text onto the material./li>
+														</ul>
+												
+												</p>
+											
+										</div>
+									</div>
+								</section>
+							</section>
+
+						
+
+				<!-- Contact -->
+				<section id="contact">
+					<div class="inner">
+					</div>
+				</section>
+
+			<!-- Footer -->
+				<footer id="footer">
+					<div class="inner">
+						<ul class="icons">
+							<li><a href="mailto:noa.samarelli@columbia.edu" class="icon solid alt fa-envelope"><span class="label">Mail</span></a></li>
+							<li><a href="https://www.linkedin.com/in/noasamarelli/" class="icon brands alt fa-linkedin-in"><span class="label">LinkedIn</span></a></li>
+							<li><a href="https://github.com/noasamarelli" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+						</ul>
+						<ul class="copyright">
+							<li>&copy; Untitled</li></li>
+						</ul>
+					</div>
+				</footer>
+
+		</div>
+
+	<!-- Scripts -->
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+
+</body>
+</html>
